@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply font-mercury text-gray-700;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.article-body {
+    @apply
+        md:grid
+        gap-x-8
+        grid-cols-12
+        max-w-none
+        prose md:prose-lg lg:prose-lg
+        /* headings */
+        prose-headings:font-idealSans
+        prose-headings:tracking-tight
+        prose-h2:mt-16
+        prose-h2:mb-4 md:prose-h2:mb-3 lg:prose-h2:mb-3
+        /* paragraphs */
+        prose-p:my-6 md:prose-p:my-4 lg:prose-p:my-4
+        prose-p:tracking-[-.02em]
+        /* links */
+        hover:prose-a:text-red-500
+        prose-a:decoration-red-500
+        prose-a:underline-offset-[6px]
+        /* pre */
+        prose-pre:my-8 md:prose-pre:my-6 lg:prose-pre:my-6
+        prose-pre:-mx-8
+        sm:prose-pre:mx-0
+        prose-pre:py-6 md:prose-pre:py-6 lg:prose-pre:py-8
+        prose-pre:px-8 md:prose-pre:px-8 lg:prose-pre:px-8
+        prose-pre:rounded-none sm:prose-pre:rounded
+        prose-pre:leading-6 md:prose-pre:leading-6 lg:prose-pre:leading-6
+        /* code */
+        prose-code:font-mono
+        prose-code:before:content-['']
+        prose-code:after:content-['']
+        /* figures */
+        md:prose-figure:grid
+        prose-figure:gap-x-8
+        prose-figure:grid-cols-10 2xl:prose-figure:grid-cols-8
+        prose-figure:col-start-2 2xl:prose-figure:col-start-3
+        prose-figure:col-end-12 lg:prose-figure:col-end-12 2xl:prose-figure:col-end-11
+        prose-figure:my-12 lg:prose-figure:my-16
+        prose-figcaption:col-start-1
+        prose-figcaption:col-end-11
+        lg:prose-figcaption:col-start-2
+        lg:prose-figcaption:col-end-10 2xl:prose-figcaption:col-end-8
+        prose-figcaption:text-gray-700
+        prose-figcaption:font-idealSans
+        /* tables */
+        prose-td:text-base md:prose-td:text-lg;
+}
+
+.article-body > *:not(figure):not(aside) {
+    @apply md:col-start-2 lg:col-start-3 2xl:col-start-4 md:col-end-12 lg:col-end-11 2xl:col-end-10;
+}
+
+.article-body > p > code {
+    /*@apply font-idealSans tracking-wide;*/
+
+    /*font-variant-caps: small-caps;*/
+}
+
+.article-body > p:first-of-type:first-letter {
+    @apply float-left mt-[8px] md:mt-3 pr-2 font-idealSans font-semibold text-6xl leading-[0.8] text-gray-900;
+}
+
+.article-body > aside {
+    @apply hidden lg:block relative lg:col-start-1 2xl:col-start-2 lg:col-end-3 2xl:col-end-4 lg:pl-8 font-idealSans text-base leading-loose italic text-right text-red-500;
+}
+
+.article-body > aside > p {
+    @apply absolute left-8 right-0;
+}
+
+.article-body > figure img {
+    @apply col-span-10 2xl:col-span-8 w-full my-0;
+}

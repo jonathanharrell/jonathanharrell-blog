@@ -1,0 +1,22 @@
+backend:
+  name: github
+  repo: jonathanharrell/jonathanharrell-blog
+  branch: master
+media_folder: static/assets
+public_folder: /assets
+collections:
+  - name: posts
+    label: Posts
+    label_singular: "Post"
+    folder: content/posts
+    extension: mdx
+    format: frontmatter
+    create: true
+    fields:
+      - { name: templateKey, label: 'Template Key', widget: hidden, default: post }
+      - { name: slug, label: Slug }
+      - { name: date, label: Date, widget: datetime }
+      - { name: title, label: Title }
+      - { name: description, label: Description, widget: text }
+      - { name: tags, label: Tags, widget: list }
+      - { name: body, label: Body, widget: markdown }
