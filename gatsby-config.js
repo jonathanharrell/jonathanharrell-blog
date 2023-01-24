@@ -12,7 +12,6 @@ module.exports = {
         "trackingId": "UA-106163304-1"
       }
     },
-    "gatsby-plugin-image",
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sitemap",
     {
@@ -21,9 +20,24 @@ module.exports = {
         "icon": "src/images/icon.png"
       }
     },
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
+    "gatsby-transformer-sharp",
+    'gatsby-remark-images',
     {
       resolve: "gatsby-plugin-mdx",
       options: {
+        gatsbyRemarkPlugins: [
+          {
+            resolve: 'gatsby-remark-images',
+            options: {
+              backgroundColor: 'transparent',
+              linkImagesToOriginal: false,
+              maxWidth: 1300,
+              wrapperStyle: ''
+            },
+          },
+        ],
         rehypePlugins: [
           require("rehype-highlight"),
           require("rehype-slug"),
@@ -36,31 +50,29 @@ module.exports = {
         ]
       }
     },
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        "name": "images",
         "path": "./src/images/"
       },
-      __key: "images"
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        "name": "pages",
         "path": "./src/pages/"
       },
-      __key: "pages"
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        "name": "posts",
         "path": "./content/posts"
       },
-      __key: "posts"
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        "path": "./static/assets"
+      },
     },
   ]
 };

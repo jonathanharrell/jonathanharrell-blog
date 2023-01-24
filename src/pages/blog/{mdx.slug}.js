@@ -7,7 +7,7 @@ export default function BlogPost({
  data: {mdx}
 }) {
   const {frontmatter, body} = mdx;
-  const {date, title, description} = frontmatter;
+  const {date, title, tags = []} = frontmatter;
   const formattedDate = new Date(date).toLocaleDateString('en-US', {
     month: 'long',
     day: 'numeric',
@@ -16,20 +16,19 @@ export default function BlogPost({
 
   return (
     <Layout>
-      <div className="container mx-auto py-24 px-8 sm:px-16 md:px-0">
+      <div className="container mx-auto py-24 px-8 md:px-0">
         <article>
-          <header>
-            <p className="mb-4 md:mb-6 font-idealSans text-sm md:text-base text-center text-red-500">
+          <header className="mb-8 sm:mb-12 md:mb-16">
+            <p className="mb-2 font-idealSans text-sm font-medium text-center">
               {formattedDate}
             </p>
-            <h1 className="max-w-sm md:max-w-md lg:max-w-lg mx-auto px-['12.5%'] font-idealSans text-3xl md:text-4xl xl:text-5xl xl:leading-[1.125] font-semibold tracking-tight text-center text-gray-900">
+            <h1 className="max-w-[22ch] mx-auto px-['12.5%'] font-idealSans text-3xl sm:text-4xl lg:text-5xl xl:leading-[1.125] font-medium tracking-tight text-center">
               {title}
             </h1>
-            <p className="max-w-sm mx-auto mt-4 md:mt-6 font-idealSans text-sm md:text-base leading-6 md:leading-7 italic text-center">
-              {description}
+            <p className="mt-2 font-idealSans text-sm text-center">
+              {tags.join(', ')}
             </p>
           </header>
-          <hr className="md:max-w-xs xl:max-w-sm mx-auto my-8 sm:my-12 md:mt-16"/>
           <div className="article-body">
             <MDXRenderer>
               {body}
@@ -50,6 +49,7 @@ export const pageQuery = graphql`
                 date
                 title
                 description
+                tags
             }
         }
     }

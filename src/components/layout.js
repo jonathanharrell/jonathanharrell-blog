@@ -2,8 +2,7 @@ import React from "react"
 import {Helmet} from "react-helmet";
 import {MDXProvider} from "@mdx-js/react";
 
-const components = {
-}
+const components = {}
 
 export default function Layout({children}) {
   return (
@@ -12,7 +11,7 @@ export default function Layout({children}) {
         <link
           rel="stylesheet"
           type="text/css"
-          href="https://cloud.typography.com/6728436/7253432/css/fonts.css"
+          href="https://cloud.typography.com/6728436/7873432/css/fonts.css"
         />
       </Helmet>
       <MDXProvider components={components}>
