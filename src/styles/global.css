@@ -47,3 +47,17 @@ body {
 .full-strip {
     @apply md:relative md:left-1/2 md:right-1/2 md:ml-[-50vw] md:mr-[-50vw] md:w-screen;
 }
+
+@layer utilities {
+  .contains-absolute-image > * {
+    @apply !absolute inset-0 w-full h-full;
+  }
+
+  .contains-absolute-image img {
+    @apply object-cover;
+  }
+
+  .contains-absolute-image .gatsby-resp-image-background-image {
+    @apply !absolute inset-0 w-full h-full !pb-0;
+  }
+}
