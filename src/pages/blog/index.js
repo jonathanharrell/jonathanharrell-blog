@@ -5,17 +5,22 @@ const Blog = ({ data: { allMdx } }) => {
   const posts = allMdx.edges;
 
   return (
-    <div>
+    <div className="container mx-auto">
       <h1>blog page</h1>
-      {posts.map(post => (
-        <Link
-          key={post.node.id}
-          to={`/blog/${post.node.slug}`}
-          className="block underline"
-        >
-          {post.node.frontmatter.title}
-        </Link>
-      ))}
+      <div className="grid grid-cols-4 gap-8">
+        {posts.map(post => (
+          <Link
+            key={post.node.id}
+            to={`/blog/${post.node.slug}`}
+            className="block underline"
+          >
+            {post.node.frontmatter.thumbnail?.publicURL && (
+              <img src={post.node.frontmatter.thumbnail.publicURL} alt=""/>
+            )}
+            {post.node.frontmatter.title}
+          </Link>
+        ))}
+      </div>
     </div>
   )
 }
@@ -34,6 +39,9 @@ export const pageQuery = graphql`
                     slug
                     frontmatter {
                         title
+                        thumbnail {
+                          publicURL
+                        }
                     }
                 }
             }
