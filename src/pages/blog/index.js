@@ -5,8 +5,8 @@ const Blog = ({ data: { allMdx } }) => {
   const posts = allMdx.edges;
 
   return (
-    <div className="container mx-auto">
-      <h1>blog page</h1>
+    <div className="container mx-auto py-8">
+      <h1>Blog</h1>
       <div className="grid grid-cols-4 gap-8">
         {posts.map(post => (
           <Link
