@@ -28,12 +28,16 @@ module.exports = {
       resolve: "gatsby-plugin-mdx",
       options: {
         gatsbyRemarkPlugins: [
+          'gatsby-transformer-remark',
           {
             resolve: 'gatsby-remark-images',
             options: {
               backgroundColor: 'transparent',
-              linkImagesToOriginal: false,
-              maxWidth: 1300,
+              linkImagesToOriginal: true,
+              maxWidth: 1200,
+              quality: 100,
+              withWebp: true,
+              withAvif: true,
               wrapperStyle: ''
             },
           },
@@ -71,6 +75,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
+        "name": "assets",
         "path": "./static/assets"
       },
     },

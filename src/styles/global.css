@@ -9,55 +9,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-.article-body {
-    @apply
-        md:grid
-        gap-x-8
-        grid-cols-12
-        max-w-none
-        prose
-        mx-auto
-        prose-figcaption:font-idealSans
-}
-
-.article-body > * {
-    @apply
-        md:col-start-2 lg:col-start-3 xl:col-start-4
-        md:col-end-12 lg:col-end-11 xl:col-end-10
-        mt-0;
-}
-
-.article-body > p:first-of-type:first-letter {
-    @apply float-left mt-[8px] md:mt-3 pr-2 font-idealSans font-semibold text-6xl leading-[0.8] text-gray-800;
-}
-
-.article-body > figure {
-    @apply mb-5;
-}
-
-.article-body > figure + *,
-.article-body > * + figure {
-    @apply mt-12 md:mt-16 lg:mt-20;
-}
-
-.article-body > figure img {
-    @apply w-full my-0;
-}
-
-.full-strip {
-    @apply md:relative md:left-1/2 md:right-1/2 md:ml-[-50vw] md:mr-[-50vw] md:w-screen;
-}
-
-@layer utilities {
-  .contains-absolute-image > * {
-    @apply !absolute inset-0 w-full h-full;
-  }
-
-  .contains-absolute-image img {
-    @apply object-cover;
-  }
-
-  .contains-absolute-image .gatsby-resp-image-background-image {
-    @apply !absolute inset-0 w-full h-full !pb-0;
-  }
+.article-body.prose {
+  @apply prose-figcaption:mt-3 prose-figcaption:text-sm prose-figcaption:text-gray-400 prose-a:no-underline prose-a:font-bold prose-a:text-red-700;
 }
