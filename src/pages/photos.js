@@ -6,7 +6,7 @@ import {GatsbyImage} from "gatsby-plugin-image";
 
 const Photos = ({ data: { allFile } }) => {
   const images = allFile.edges;
-console.log(allFile);
+
   return (
     <Layout>
       <div className="container py-8">
