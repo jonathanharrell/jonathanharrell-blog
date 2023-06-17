@@ -16,20 +16,16 @@ const Blog = ({ data: { allMdx } }) => {
           </header>
           <div className="flex flex-col gap-16">
             {posts.map(post => (
-              <article>
+              <article key={post.node.id}>
                 <header className={post.node.frontmatter.title ? 'mb-8' : 'mb-4'}>
                   {post.node.frontmatter.title && (
-                    <Link
-                      key={post.node.id}
-                      to={`/blog/${post.node.slug}`}
-                    >
+                    <Link to={`/blog/${post.node.slug}`}>
                       <h2 className="mb-3 text-4xl font-medium font-idealSans">
                         {post.node.frontmatter.title}
                       </h2>
                     </Link>
                   )}
                   <Link
-                    key={post.node.id}
                     to={`/blog/${post.node.slug}`}
                     className="block text-xl font-semibold font-idealSans"
                   >

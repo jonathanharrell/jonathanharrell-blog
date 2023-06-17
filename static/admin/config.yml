@@ -14,10 +14,9 @@ collections:
     create: true
     fields:
       - { name: templateKey, label: 'Template Key', widget: hidden, default: post }
-      - { name: slug, label: Slug }
-      - { name: date, label: Date, widget: datetime }
+      - { name: slug, label: Slug, required: true }
+      - { name: date, label: Date, required: true, widget: datetime }
       - { name: title, label: Title }
       - { name: description, label: Description, widget: text }
       - { name: tags, label: Tags, widget: list }
-      - { name: thumbnail, label: Thumbnail, widget: image }
       - { name: body, label: Body, widget: markdown }

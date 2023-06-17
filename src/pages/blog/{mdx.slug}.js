@@ -45,7 +45,6 @@ export default function BlogPost({
 export const pageQuery = graphql`
     query ($id: String!) {
         mdx(id: { eq: $id }) {
-            slug
             body
             frontmatter {
                 date
