@@ -38,7 +38,17 @@ module.exports = {
               quality: 100,
               withWebp: true,
               withAvif: true,
-              wrapperStyle: ''
+              wrapperStyle(image) {
+                let maxImageWidth;
+                if (image.aspectRatio < 1) maxImageWidth = image.aspectRatio * 1000;
+                else maxImageWidth = 1000;
+
+                return `max-width: clamp(200px, calc(${
+                  image.aspectRatio
+                }* 80vh), ${
+                  Math.round(maxImageWidth * 10) / 10
+                }px); max-height: 1000px;`;
+              },
             },
           },
         ],

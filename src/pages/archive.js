@@ -27,7 +27,12 @@ const Archive = ({ data: { allMdx } }) => {
                     day: '2-digit'
                   }).replace(/[^apm\d]+/gi, '-')}
                 </Link>
-                : {post.node.frontmatter.title || post.node.excerpt}
+                :&nbsp;
+                {post.node.frontmatter.title && (
+                  <strong>{post.node.frontmatter.title}</strong>
+                )}
+                {post.node.frontmatter.title && post.node.excerpt && ' - '}
+                {post.node.excerpt}
               </li>
             ))}
           </ul>

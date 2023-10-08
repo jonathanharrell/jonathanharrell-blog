@@ -20,6 +20,7 @@ const Photos = ({ data: { allFile } }) => {
                 key={image.node.id}
                 image={image.node.childImageSharp.gatsbyImageData}
                 alt=""
+                loading="lazy"
                 className="aspect-square"
               />
             ))}
